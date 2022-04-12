@@ -1,6 +1,6 @@
 package com.company.problem1;
 
-public class pc_static_block {
+public class pc_static_cyclic {
     private static int NUM_END = 200000; // default input
     private static int NUM_THREADS = 8; // default number of threads
     public static void main(String[] args) {
@@ -12,11 +12,11 @@ public class pc_static_block {
         System.out.println("Number of Threads : " + NUM_THREADS);
 
         int counter = 0;
-        FindingThread1[] ft = new FindingThread1[NUM_THREADS];
+        FindingThread2[] ft = new FindingThread2[NUM_THREADS];
         long programStartTime = System.currentTimeMillis();
 
         for (int i = 0; i < NUM_THREADS; i++) {
-            ft[i] = new FindingThread1((i * NUM_END) / NUM_THREADS, ((i + 1) * NUM_END) / NUM_THREADS);
+            ft[i] = new FindingThread2(i, NUM_END, NUM_THREADS);
             ft[i].start();
         }
 
@@ -39,18 +39,19 @@ public class pc_static_block {
     }
 }
 
-class FindingThread1 extends Thread {
+class FindingThread2 extends Thread {
     int counter = 0;
     long executionTime;
-    int low, high;
-    FindingThread1 (int low, int high) {
-        this.low = low;
-        this.high = high;
+    int remainder, NUM_END, NUM_THREADS;
+    FindingThread2 (int remainder, int NUM_END, int NUM_THREADS) {
+        this.remainder = remainder;
+        this.NUM_END = NUM_END;
+        this.NUM_THREADS = NUM_THREADS;
     }
 
     public void run() {
         long startTime = System.currentTimeMillis();
-        for (int i = low; i < high; i++) {
+        for (int i = remainder; i < NUM_END; i += NUM_THREADS) {
             if (isPrime(i)) {
                 counter += 1;
             }
@@ -69,3 +70,4 @@ class FindingThread1 extends Thread {
         return true;
     }
 }
+
