@@ -14,6 +14,7 @@ import java.lang.*;
 // Original JAVA source code: http://stackoverflow.com/questions/21547462/how-to-multiply-2-dimensional-arrays-matrix-multiplication
 public class MatmultD {
     private static Scanner sc = new Scanner(System.in);
+    private static long[] threadTime;
     static int thread_no = 0;
     public static void main(String [] args) {
         File file = new File(System.getProperty("user.dir") + "/" + args[1]);
@@ -38,7 +39,9 @@ public class MatmultD {
             System.out.printf("thread_no: %d\n" , thread_no);
             System.out.printf("Calculation Time: %d ms\n" , endTime-startTime);
 
-            System.out.printf("[thread_no]:%2d , [Time]:%4d ms\n", thread_no, endTime-startTime);
+            for (int i = 0; i < thread_no; i++) {
+                System.out.printf("[thread_no]:%2d , [Time]:%4d ms\n", i, threadTime[i]);
+            }
         } catch(FileNotFoundException ignored) {
 
         }
@@ -82,7 +85,7 @@ public class MatmultD {
         int ans[][] = new int[m][p];
 
         MultThread[] mt = new MultThread[thread_no];
-        long[] threadTime = new long[thread_no];
+        threadTime = new long[thread_no];
         for (int i = 0; i < thread_no; i++) {
             int start = i * (a.length / thread_no);
             int end;
@@ -101,7 +104,6 @@ public class MatmultD {
                 mt[i].join();
                 long endTime = System.currentTimeMillis();
                 threadTime[i] = endTime - threadTime[i];
-                System.out.println("Thread#" + i + "'s excution time = " + threadTime[i]);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
