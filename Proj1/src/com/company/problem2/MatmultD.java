@@ -1,5 +1,7 @@
 package com.company.problem2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 import java.lang.*;
 
@@ -12,27 +14,34 @@ import java.lang.*;
 // Original JAVA source code: http://stackoverflow.com/questions/21547462/how-to-multiply-2-dimensional-arrays-matrix-multiplication
 public class MatmultD {
     private static Scanner sc = new Scanner(System.in);
+    static int thread_no = 0;
     public static void main(String [] args) {
-        int thread_no = 0;
-        if (args.length == 1)
-            thread_no = Integer.valueOf(args[0]);
-        else thread_no = 1;
+        File file = new File(System.getProperty("user.dir") + "/" + args[1]);
+        try {
+            sc = new Scanner(file);
 
-        int a[][] = readMatrix();
-        int b[][] = readMatrix();
+            if (args.length == 2)
+                thread_no = Integer.parseInt(args[0]);
+            else thread_no = 1;
 
-        long startTime = System.currentTimeMillis();
-        int[][] c = multMatrix(a,b);
-        long endTime = System.currentTimeMillis();
+            int[][] a = readMatrix();
+            int[][] b = readMatrix();
 
-        //printMatrix(a);
-        //printMatrix(b);
-        printMatrix(c);
+            long startTime = System.currentTimeMillis();
+            int[][] c = multMatrix(a,b);
+            long endTime = System.currentTimeMillis();
 
-        //System.out.printf("thread_no: %d\n" , thread_no);
-        //System.out.printf("Calculation Time: %d ms\n" , endTime-startTime);
+//            printMatrix(a);
+//            printMatrix(b);
+            printMatrix(c);
 
-        System.out.printf("[thread_no]:%2d , [Time]:%4d ms\n", thread_no, endTime-startTime);
+            System.out.printf("thread_no: %d\n" , thread_no);
+            System.out.printf("Calculation Time: %d ms\n" , endTime-startTime);
+
+            System.out.printf("[thread_no]:%2d , [Time]:%4d ms\n", thread_no, endTime-startTime);
+        } catch(FileNotFoundException ignored) {
+
+        }
     }
 
     public static int[][] readMatrix() {
@@ -72,6 +81,32 @@ public class MatmultD {
         int p = b[0].length;
         int ans[][] = new int[m][p];
 
+        MultThread[] mt = new MultThread[thread_no];
+        long[] threadTime = new long[thread_no];
+        for (int i = 0; i < thread_no; i++) {
+            int start = i * (a.length / thread_no);
+            int end;
+            if (i == thread_no - 1)
+                end = a.length;
+            else
+                end = (i + 1) * (a.length / thread_no);
+            mt[i] = new MultThread(i, start, end, a, b, ans);
+            long startTime = System.currentTimeMillis();
+            threadTime[i] = startTime;
+            mt[i].start();
+        }
+
+        try {
+            for (int i = 0; i < thread_no; i++) {
+                mt[i].join();
+                long endTime = System.currentTimeMillis();
+                threadTime[i] = endTime - threadTime[i];
+                System.out.println("Thread#" + i + "'s excution time = " + threadTime[i]);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for(int i = 0;i < m;i++){
             for(int j = 0;j < p;j++){
                 for(int k = 0;k < n;k++){
@@ -80,5 +115,36 @@ public class MatmultD {
             }
         }
         return ans;
+    }
+}
+
+class MultThread extends Thread {
+    int num;
+    int start;
+    int end;
+    int[][] a;
+    int[][] b;
+    int[][] ans;
+
+    MultThread(int num, int start, int end, int[][] a, int[][] b, int[][] ans) {
+        this.num = num;
+        this.start = start;
+        this.end = end;
+        this.a = a;
+        this.b = b;
+        this.ans = ans;
+    }
+
+    public void run() {
+        int n = a[0].length;
+        int p = b[0].length;
+
+        for (int i = start; i < end; i++) {
+            for (int j = 0; j < p; j++) {
+                for (int k = 0; k < n; k++) {
+                    ans[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
     }
 }
