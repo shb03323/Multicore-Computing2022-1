@@ -17,7 +17,7 @@ public class pc_static_block {
 
         for (int i = 0; i < NUM_THREADS; i++) {
             if (i == NUM_THREADS - 1)
-                ft[i] = new FindingThread1((i * NUM_END) / NUM_THREADS, NUM_THREADS);
+                ft[i] = new FindingThread1((i * NUM_END) / NUM_THREADS, NUM_END);
             else
                 ft[i] = new FindingThread1((i * NUM_END) / NUM_THREADS, ((i + 1) * NUM_END) / NUM_THREADS);
             ft[i].start();
