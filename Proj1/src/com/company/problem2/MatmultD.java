@@ -34,7 +34,7 @@ public class MatmultD {
 
 //            printMatrix(a);
 //            printMatrix(b);
-            //printMatrix(c);
+            printMatrix(c);
 
             System.out.printf("thread_no: %d\n" , thread_no);
             System.out.printf("Calculation Time: %d ms\n" , endTime-startTime);
@@ -66,10 +66,10 @@ public class MatmultD {
         int sum = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.printf("%4d " , mat[i][j]);
+//                System.out.printf("%4d " , mat[i][j]);
                 sum+=mat[i][j];
             }
-            System.out.println();
+//            System.out.println();
         }
         System.out.println();
         System.out.println("Matrix Sum = " + sum + "\n");
@@ -107,14 +107,6 @@ public class MatmultD {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-
-        for(int i = 0;i < m;i++){
-            for(int j = 0;j < p;j++){
-                for(int k = 0;k < n;k++){
-                    ans[i][j] += a[i][k] * b[k][j];
-                }
-            }
         }
         return ans;
     }
