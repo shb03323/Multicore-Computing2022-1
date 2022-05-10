@@ -1,0 +1,73 @@
+Get value : 0
+Thread 3: trying to add
+Added value : 1
+Thread 3: just added
+Thread 3: trying to subtract
+Get and subtract this value : 1
+Thread 3: just subtracted
+Get value : 0
+Thread 2: trying to add
+Added value : 1
+Thread 2: just added
+Get value : 1
+Thread 1: trying to add
+Added value : 2
+Thread 1: just added
+Get value : 2
+Thread 4: trying to add
+Added value : 3
+Thread 4: just added
+Get value : 3
+Thread 8: trying to add
+Added value : 4
+Thread 8: just added
+Get value : 4
+Thread 6: trying to add
+Added value : 5
+Thread 6: just added
+Get value : 5
+Thread 5: trying to add
+Added value : 6
+Thread 5: just added
+Get value : 6
+Thread 7: trying to add
+Added value : 7
+Thread 7: just added
+Thread 7: trying to subtract
+Get and subtract this value : 7
+Thread 7: just subtracted
+Get value : 6
+Thread 9: trying to add
+Added value : 7
+Thread 9: just added
+Thread 2: trying to subtract
+Get and subtract this value : 7
+Thread 2: just subtracted
+Get value : 6
+Thread 10: trying to add
+Added value : 7
+Thread 10: just added
+Thread 5: trying to subtract
+Get and subtract this value : 7
+Thread 5: just subtracted
+Thread 1: trying to subtract
+Get and subtract this value : 6
+Thread 1: just subtracted
+Thread 8: trying to subtract
+Get and subtract this value : 5
+Thread 8: just subtracted
+Get value : 4
+Thread 3: trying to add
+Added value : 5
+Thread 3: just added
+Get value : 5
+Thread 7: trying to add
+Added value : 6
+Thread 7: just added
+Get value : 6
+Thread 2: trying to add
+Added value : 7
+Thread 2: just added
+Thread 10: trying to subtract
+Get and subtract this value : 7
+Thread 10: just subtracted

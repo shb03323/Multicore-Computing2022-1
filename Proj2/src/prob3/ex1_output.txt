@@ -1,0 +1,124 @@
+producer 2: trying to produce
+producer 2: just produced
+producer 4: trying to produce
+producer 4: just produced
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 3: trying to produce
+producer 3: just produced
+producer 4: trying to produce
+producer 4: just produced
+producer 5: trying to produce
+producer 5: just produced
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+producer 2: trying to produce
+producer 2: just produced
+producer 1: trying to produce
+producer 1: just produced
+producer 4: trying to produce
+producer 4: just produced
+consumer 5:                                     about to consume
+consumer 5:                                     have been consumed
+producer 2: trying to produce
+producer 2: just produced
+producer 2: trying to produce
+producer 2: just produced
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 3: trying to produce
+producer 3: just produced
+producer 5: trying to produce
+producer 5: just produced
+producer 4: trying to produce
+producer 4: just produced
+consumer 1:                                     about to consume
+consumer 1:                                     have been consumed
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 1: trying to produce
+producer 1: just produced
+consumer 3:                                     about to consume
+consumer 3:                                     have been consumed
+producer 5: trying to produce
+producer 5: just produced
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+consumer 5:                                     about to consume
+consumer 5:                                     have been consumed
+producer 4: trying to produce
+producer 4: just produced
+consumer 1:                                     about to consume
+consumer 1:                                     have been consumed
+producer 3: trying to produce
+producer 3: just produced
+producer 1: trying to produce
+producer 1: just produced
+producer 2: trying to produce
+producer 2: just produced
+producer 5: trying to produce
+producer 5: just produced
+producer 3: trying to produce
+producer 3: just produced
+producer 4: trying to produce
+producer 4: just produced
+producer 5: trying to produce
+producer 2: trying to produce
+producer 3: trying to produce
+consumer 3:                                     about to consume
+consumer 3:                                     have been consumed
+producer 5: just produced
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 2: just produced
+producer 1: trying to produce
+producer 4: trying to produce
+producer 2: trying to produce
+consumer 1:                                     about to consume
+consumer 1:                                     have been consumed
+producer 3: just produced
+producer 5: trying to produce
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+producer 1: just produced
+consumer 5:                                     about to consume
+consumer 5:                                     have been consumed
+producer 4: just produced
+producer 3: trying to produce
+producer 1: trying to produce
+producer 4: trying to produce
+consumer 5:                                     about to consume
+consumer 5:                                     have been consumed
+producer 2: just produced
+consumer 3:                                     about to consume
+consumer 3:                                     have been consumed
+producer 5: just produced
+consumer 1:                                     about to consume
+consumer 1:                                     have been consumed
+producer 3: just produced
+producer 3: trying to produce
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 1: just produced
+producer 2: trying to produce
+consumer 3:                                     about to consume
+consumer 3:                                     have been consumed
+producer 4: just produced
+consumer 4:                                     about to consume
+consumer 4:                                     have been consumed
+producer 3: just produced
+producer 3: trying to produce
+producer 5: trying to produce
+consumer 1:                                     about to consume
+consumer 1:                                     have been consumed
+producer 2: just produced
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+producer 3: just produced
+consumer 2:                                     about to consume
+consumer 2:                                     have been consumed
+producer 5: just produced
