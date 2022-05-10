@@ -1,7 +1,6 @@
 package prob1;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 
 public class ParkingBlockingQueue {
     public static void main(String[] args) {
@@ -14,11 +13,11 @@ public class ParkingBlockingQueue {
 }
 
 class ParkingGarage {
-    private ArrayBlockingQueue<String> places;
+    private final ArrayBlockingQueue<String> places;
     public ParkingGarage(int capacity) {
         if (capacity < 0)
             capacity = 0;
-        places = new ArrayBlockingQueue<>(capacity);
+        this.places = new ArrayBlockingQueue<>(capacity);
     }
     public void enter(String name) { // enter parking garage
         try {
@@ -37,7 +36,7 @@ class ParkingGarage {
 }
 
 class Car extends Thread {
-    private ParkingGarage parkingGarage;
+    private final ParkingGarage parkingGarage;
     public Car(String name, ParkingGarage p) {
         super(name);
         this.parkingGarage = p;
